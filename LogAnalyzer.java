@@ -81,7 +81,6 @@ public class LogAnalyzer
         while(reader.hasNext()) {
             LogEntry entry = reader.next();
             int month = entry.getMonth();
-            System.out.println("Month: " + month);
             monthCounts[month-1]++;
         }
     }
@@ -145,6 +144,20 @@ public class LogAnalyzer
             total += hourCounts[i];
         }
         return total;
+    }
+    
+    /*
+     * Return the number of accesses recorded in the log file.
+     * @return The total number of hourly accesses
+     */
+    public int averageAccessesPerMonth()
+    {
+        int total = 0;
+        for(int i = 0; i < monthCounts.length; i++)
+        {
+            total += monthCounts[i];
+        }
+        return total/12;
     }
     
     /*
@@ -220,7 +233,7 @@ public class LogAnalyzer
                  busiest = i;
              }
           }
-          return busiest;
+          return busiest + 1;
     }
     
     /*
@@ -238,7 +251,7 @@ public class LogAnalyzer
                  quietest = i;
              }
           }
-          return quietest;
+          return quietest + 1;
     }
     
     /*
@@ -256,7 +269,7 @@ public class LogAnalyzer
                  busiest = i;
              }
           }
-          return busiest;
+          return busiest + 1;
     }
     
     /*
@@ -274,6 +287,8 @@ public class LogAnalyzer
                  quietest = i;
              }
           }
-          return quietest;
+          return quietest + 1;
     }
+    
+    
 }
