@@ -109,4 +109,21 @@ public class LogAnalyzer
       return quietest;
     }
     
+    public int busiestDoubleHour()
+    {
+        int busiest = 0;
+        int biggestDuoTotal = 0;
+        for(int i = 0; i < hourCounts.length - 1; i++)
+          {
+             int duoTotal = hourCounts[i] + hourCounts[i+1];
+             if(duoTotal > biggestDuoTotal)
+             {
+                 busiest = i;
+                 biggestDuoTotal = duoTotal;
+             }
+             
+          }
+        return busiest;
+    }
+    
 }
