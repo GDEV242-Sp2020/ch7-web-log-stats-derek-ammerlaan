@@ -96,4 +96,17 @@ public class LogAnalyzer
       return busiest;
     }
     
+    public int quietestHour()
+    {
+      int quietest = 0;
+      for(int i = 0; i < hourCounts.length; i++)
+      {
+         if(hourCounts[quietest] > hourCounts[i])
+         {
+             quietest = i;
+         }
+      }
+      return quietest;
+    }
+    
 }
